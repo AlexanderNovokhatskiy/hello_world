@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Учёт бюджета</string>
+    <string name="expense_amount">Расход</string>
+    <string name="expense_name">Название</string>
+    <string name="expense_add">ДОБАВИТЬ</string>
+</resources>
