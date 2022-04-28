@@ -3,4 +3,5 @@
     <string name="expense_amount">Expense Amount</string>
     <string name="expense_name">Expense Name</string>
     <string name="expense_add">ADD EXPENSE</string>
+    <string name="empty_expense">укажите расход</string>
 </resources>
