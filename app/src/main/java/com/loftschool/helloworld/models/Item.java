@@ -1,4 +1,4 @@
-package com.loftschool.helloworld;
+package com.loftschool.helloworld.models;
 
 public class Item {
     private String name;

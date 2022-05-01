@@ -7,9 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#AC3232</color>
+
     <color name="primary_color">#3574FA</color>
     <color name="accent_color">#7ED321</color>
+    <color name="accent_second">#FFFF9E57</color>
     <color name="disabled_color">#EAEAEA</color>
     <color name="text_color">#666664</color>
     <color name="divider_color">#F2F2F2</color>
+    <color name="expense_color">@color/red</color>
+    <color name="income_color">@color/accent_color</color>
 </resources>
