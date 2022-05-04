@@ -7,13 +7,13 @@
     tools:context=".AddItemActivity">
 
     <EditText
-        android:id="@+id/expenseAmount"
+        android:id="@+id/Amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="113dp"
         android:layout_marginEnd="32dp"
-        android:hint="@string/expense_amount"
+        android:hint= "@string/amount"
         android:inputType="number"
         android:minHeight="48dp"
         android:textColor="@color/primary_color"
@@ -22,18 +22,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/expenseName"
+        android:id="@+id/Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:hint="@string/expense_name"
+        android:hint="@string/name"
         android:inputType="text"
         android:minHeight="48dp"
         android:textColor="@color/primary_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expenseAmount" />
+        app:layout_constraintTop_toBottomOf="@id/Amount" />
 
     <Button
         android:id="@+id/expenseAdd"
@@ -49,5 +49,5 @@
         android:textColor="@color/color_expenseadd_selector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expenseName" />
+        app:layout_constraintTop_toBottomOf="@id/Name" />
 </androidx.constraintlayout.widget.ConstraintLayout>
