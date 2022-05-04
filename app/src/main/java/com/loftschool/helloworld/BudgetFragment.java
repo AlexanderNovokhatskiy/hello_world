@@ -133,6 +133,12 @@ public class BudgetFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onDestroy() {
+        compositeDisposable.dispose();
+        super.onDestroy();
+    }
+
     private void loadItems() {
         Context appContext = getActivity().getApplicationContext();
         Disposable disposable = ((LoftApp) getActivity().getApplication()).moneyApi.getMoneyItems("income")

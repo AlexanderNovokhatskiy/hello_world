@@ -29,9 +29,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
-    //    private RecyclerView itemsView;
-//    private ItemsAdapter moneyCellAdaper = new ItemsAdapter(R.color.purple_500);
-//    public static final int REQUEST_CODE_ADD_ITEM = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,39 +54,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }).attach();
     }
-
-/*    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_ADD_ITEM && resultCode == Activity.RESULT_OK) {
-            int expenseAmount = 0;
-            try {
-                expenseAmount = Integer.parseInt(data.getStringExtra("expense_amount"));
-            } catch (NumberFormatException e) {
-                expenseAmount = 0;
-            }
-            final String expenseName = data.getStringExtra("expense_name");
-            generateMoney(expenseName, expenseAmount);
-        }
-    }
-
-    private void generateMoney(String name, int price) {
-        List<Item> moneyItems = new ArrayList<>();
-        moneyItems.add(new Item("PS4", 20000));
-        moneyItems.add(new Item("PS5", 30000));
-        moneyItems.add(new Item(name, price));
-        moneyCellAdaper.setData(moneyItems);
-    }
-
-    private void configureRecyclerView() {
-        itemsView = findViewById(R.id.itemsView);
-        itemsView.setAdapter(moneyCellAdaper);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
-        itemsView.setLayoutManager(linearLayoutManager);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(itemsView.getContext(), linearLayoutManager.getOrientation());
-        itemsView.addItemDecoration(dividerItemDecoration);
-    }*/
 
     // Это обычный адаптер для управления списком, мы создавали адаптер раньше для RecyclerView
     public class ViewPagerFragmentAdapter extends FragmentStateAdapter {
