@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+
 public class AddItemActivity extends AppCompatActivity {
     public static final String KEY_AMOUNT = "amount";
     public static final String KEY_NAME = "name";

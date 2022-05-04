@@ -9,4 +9,6 @@
     <string name="expenses">Расходы</string>
     <string name="name">Название</string>
     <string name="amount">Количество</string>
+    <string name="success_added">Доход/расход успешно добавлен</string>
+    <string name="connection_lost">Не удалось загрузить список доходов/расходов</string>
 </resources>

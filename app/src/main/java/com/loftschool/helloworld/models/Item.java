@@ -1,5 +1,7 @@
 package com.loftschool.helloworld.models;
 
+import com.loftschool.helloworld.remote.MoneyRemoteItem;
+
 public class Item {
     private String name;
     private int price;
@@ -17,4 +19,8 @@ public class Item {
         return price;
     }
 
+    public static Item getInstance(MoneyRemoteItem moneyRemoteItem) {
+        int price = (int) moneyRemoteItem.getPrice();
+        return new Item(moneyRemoteItem.getName(), price);
+    }
 }

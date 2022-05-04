@@ -8,4 +8,6 @@
     <string name="expenses">Expenses</string>
     <string name="name">Name</string>
     <string name="amount">Amount</string>
+    <string name="success_added">Income/expense was successfully added</string>
+    <string name="connection_lost">Sorry, we can\'t load your money list</string>
 </resources>

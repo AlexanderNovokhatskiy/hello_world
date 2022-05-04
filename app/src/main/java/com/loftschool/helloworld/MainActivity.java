@@ -13,16 +13,23 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.loftschool.helloworld.models.Item;
+import com.loftschool.helloworld.remote.MoneyRemoteItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+
 public class MainActivity extends AppCompatActivity {
-//    private RecyclerView itemsView;
+    //    private RecyclerView itemsView;
 //    private ItemsAdapter moneyCellAdaper = new ItemsAdapter(R.color.purple_500);
 //    public static final int REQUEST_CODE_ADD_ITEM = 100;
 
