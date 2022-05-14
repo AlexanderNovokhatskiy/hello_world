@@ -11,4 +11,6 @@
     <string name="amount">Количество</string>
     <string name="success_added">Доход/расход успешно добавлен</string>
     <string name="connection_lost">Не удалось загрузить список доходов/расходов</string>
+    <string name="login">Войти</string>
+    <string name="something_went_wrong">Что-то пошло не так</string>
 </resources>

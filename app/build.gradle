@@ -37,18 +37,36 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
     // Internet
     def okHttp_version = '4.8.0'
     def retrofit_version = '2.9.0'
+    // библиотека для удобного обращения к серверу
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    // библиотека чтобы json преобразовывался в классы Java
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    // библиотека для того чтобы retrofit работал с rxjava
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    // библиотека для работы с сетью
     implementation "com.squareup.okhttp3:okhttp:$okHttp_version"
+    // библиотека чтобы в логах отображалась информация о запросах
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttp_version"
 
-    // RxJava
+    // RxJava - библиотека для работы с потоками и асинхронной работы
+    // библиотека rx для android
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    // библиотека rx для Java
     implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
+
+    // Авторизация гугл
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
+
+
+    // ViewModel
+    def lifecycle_version = "2.4.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }

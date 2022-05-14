@@ -1,34 +1,25 @@
-package com.loftschool.helloworld;
+package com.loftschool.helloworld.presentation;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-import com.loftschool.helloworld.models.Item;
-import com.loftschool.helloworld.remote.MoneyRemoteItem;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+import com.loftschool.helloworld.AddItemActivity;
+import com.loftschool.helloworld.BudgetFragment;
+import com.loftschool.helloworld.R;
 
 public class MainActivity extends AppCompatActivity {
+
+    private int currentPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +33,28 @@ public class MainActivity extends AppCompatActivity {
         ViewPager2 viewPager = findViewById(R.id.viewpager);
         // Устанавливаем адаптер, он будет управлять списком наших фрагментов
         viewPager.setAdapter(new ViewPagerFragmentAdapter(this));
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                currentPosition = position;
+            }
+        });
+        // Находим кнопку
+        FloatingActionButton addButton = findViewById(R.id.add_button);
+        // Навешиваем на кнопку листенера для запуска активити добавления элемента в список
+        Intent intent = new Intent(this, AddItemActivity.class);
 
+        addButton.setOnClickListener(v -> {
+            String type = "0";
+            if (currentPosition == 0) {
+                type = "income";
+            } else if (currentPosition == 1) {
+                type = "expense";
+            }
+            intent.putExtra(BudgetFragment.TYPE, type);
+            startActivity(intent);
+        });
         //Здесь просто перечислим наши вкладки
         final String[] fragmentsTitles = new String[]{getString(R.string.incomes), getString(R.string.expenses)};
 

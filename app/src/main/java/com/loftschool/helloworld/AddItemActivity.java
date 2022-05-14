@@ -1,6 +1,7 @@
 package com.loftschool.helloworld;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.loftschool.helloworld.remote.MoneyApi;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -19,12 +24,13 @@ public class AddItemActivity extends AppCompatActivity {
     public static final String KEY_AMOUNT = "amount";
     public static final String KEY_NAME = "name";
 
-    private EditText mExpenseAmountEditText;
+    private TextInputEditText mExpenseAmountEditText;
     private String mExpenseAmount = "";
-    private EditText mExpenseNameEditText;
+    private TextInputEditText mExpenseNameEditText;
     private String mExpenseName = "";
     private Button mExpenseAddButton;
-
+    private MoneyApi moneyApi;
+    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,23 +68,46 @@ public class AddItemActivity extends AppCompatActivity {
                 checkButtonEnabled();
             }
         });
+
+        // Находим тулбар (верхняя плашка на экране)
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        // При нажатии на кнопочку "назад" вернёмся на предыдущий экран
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());
+
+        moneyApi = ((LoftApp) getApplication()).moneyApi;
+
         mExpenseAddButton = findViewById(R.id.expenseAdd);
         mExpenseAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-
-                if (!mExpenseAmount.isEmpty() && !mExpenseName.isEmpty()) {
-                    setResult(
-                            RESULT_OK,
-                            new Intent().putExtra(KEY_AMOUNT, mExpenseAmount)
-                                    .putExtra(KEY_NAME, mExpenseName));
-                    finish();
-                } else {
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.empty_expense), Toast.LENGTH_SHORT).show();
-                }
+                // Получаем заполненные поля
+                String name = mExpenseNameEditText.getText().toString();
+                int price = Integer.parseInt(mExpenseAmountEditText.getText().toString());
+                Bundle arguments = getIntent().getExtras();
+                String type = arguments.getString(BudgetFragment.TYPE);
+                String token = getSharedPreferences(getString(R.string.app_name), 0).getString(LoftApp.AUTH_KEY, "");
+                Disposable disposable = moneyApi.addItem(price, name, type, token)
+                        // Подписываем функцию на новый поток
+                        .subscribeOn(Schedulers.io())
+                        // Указываем на каком потоке будем получать данные из функции
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                () -> finish(),
+                                error -> Toast.makeText(getApplicationContext(), R.string.something_went_wrong, Toast.LENGTH_SHORT)
+                                        .show()
+                        );
+                compositeDisposable.add(disposable);
+                // Закрываем нашу активити, здесь мы всё сделали
             }
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.dispose();
+    }
+
 
     public void checkButtonEnabled() {
         mExpenseAddButton.setEnabled(!mExpenseAmount.isEmpty() && !mExpenseName.isEmpty());
