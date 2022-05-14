@@ -10,4 +10,6 @@
     <string name="amount">Amount</string>
     <string name="success_added">Income/expense was successfully added</string>
     <string name="connection_lost">Sorry, we can\'t load your money list</string>
+    <string name="login">Login</string>
+    <string name="something_went_wrong">Something went wrong</string>
 </resources>
