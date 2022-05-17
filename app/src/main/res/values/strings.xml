@@ -12,6 +12,13 @@
     <string name="connection_lost">Sorry, we can\'t load your money list</string>
     <string name="login">Login</string>
     <string name="something_went_wrong">Something went wrong</string>
+    <string name="budget_accounting">Budget accounting</string>
+    <string name="delete_items_title">Delete items</string>
+    <string name="delete_items_message">Are you sure you want to delete this items?</string>
+    <string name="action_no">No</string>
+    <string name="action_yes">Yes</string>
+    <string name="selected">Selected: %d</string>
+    <string name="add_item_title">Add element</string>
     <string name="income">income</string>
     <string name="expense">expense</string>
 </resources>
