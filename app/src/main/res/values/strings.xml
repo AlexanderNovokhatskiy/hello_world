@@ -12,4 +12,6 @@
     <string name="connection_lost">Sorry, we can\'t load your money list</string>
     <string name="login">Login</string>
     <string name="something_went_wrong">Something went wrong</string>
+    <string name="income">income</string>
+    <string name="expense">expense</string>
 </resources>

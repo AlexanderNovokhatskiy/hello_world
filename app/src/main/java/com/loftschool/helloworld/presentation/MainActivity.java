@@ -82,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
         public Fragment createFragment(int position) {
             switch (position) {
                 case 0:
-                    return BudgetFragment.newInstance(R.color.income_color, getString(R.string.incomes));
+                    return BudgetFragment.newInstance(R.color.income_color, getString(R.string.income));
                 case 1:
-                    return BudgetFragment.newInstance(R.color.expense_color, getString(R.string.expenses));
+                    return BudgetFragment.newInstance(R.color.expense_color, getString(R.string.expense));
                 case 2:
                     // Тут будет ещё фрагмент
                 default:
