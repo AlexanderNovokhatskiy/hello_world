@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.loftschool.helloworld.LoftApp;
-import com.loftschool.helloworld.models.MoneyItem;
+import com.loftschool.helloworld.fragment_budget.models.MoneyItem;
 import com.loftschool.helloworld.remote.MoneyApi;
 import com.loftschool.helloworld.remote.MoneyRemoteItem;
 

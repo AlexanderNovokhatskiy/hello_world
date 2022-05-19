@@ -9,8 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.loftschool.helloworld.R;
-import com.loftschool.helloworld.fragment_budget.MoneyItemAdapterClick;
-import com.loftschool.helloworld.models.MoneyItem;
+import com.loftschool.helloworld.fragment_budget.models.MoneyItem;
 
 import java.util.ArrayList;
 import java.util.List;

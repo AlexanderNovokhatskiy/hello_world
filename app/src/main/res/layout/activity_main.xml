@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical"
     tools:context=".presentation.MainActivity">
 
+
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarView"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/primary_color"
@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/btn_back"
+                android:id="@+id/backButtonView"
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
                 android:padding="16dp"
@@ -30,7 +30,7 @@
                 android:visibility="gone" />
 
             <TextView
-                android:id="@+id/tv_action_title"
+                android:id="@+id/dashboardTitleView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -43,7 +43,7 @@
                 tools:ignore="SpUsage" />
 
             <ImageView
-                android:id="@+id/iv_delete"
+                android:id="@+id/dashboardActionView"
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
                 android:padding="16dp"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:background="@color/primary_color"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/toolbarView"
         app:tabIndicatorColor="@color/accent_second"
         app:tabSelectedTextColor="@color/accent_color"
         app:tabTextColor="@android:color/white" />
