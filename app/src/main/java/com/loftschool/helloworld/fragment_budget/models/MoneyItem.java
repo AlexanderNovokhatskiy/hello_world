@@ -1,4 +1,4 @@
-package com.loftschool.helloworld.models;
+package com.loftschool.helloworld.fragment_budget.models;
 
 import com.loftschool.helloworld.remote.MoneyRemoteItem;
 

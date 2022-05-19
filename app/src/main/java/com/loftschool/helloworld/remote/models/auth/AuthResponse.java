@@ -1,4 +1,4 @@
-package com.loftschool.helloworld.remote;
+package com.loftschool.helloworld.remote.models.auth;
 
 import com.google.gson.annotations.SerializedName;
 

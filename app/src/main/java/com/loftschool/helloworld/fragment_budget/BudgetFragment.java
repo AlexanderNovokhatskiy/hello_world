@@ -15,9 +15,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.loftschool.helloworld.LoftApp;
 import com.loftschool.helloworld.R;
-import com.loftschool.helloworld.models.MoneyItem;
-import com.loftschool.helloworld.presentation.EditModeListener;
 
+import com.loftschool.helloworld.presentation.EditModeListener;
+import com.loftschool.helloworld.fragment_budget.models.MoneyItem;
 
 public class BudgetFragment extends Fragment implements MoneyEditListener {
 

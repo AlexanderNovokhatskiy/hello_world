@@ -21,4 +21,6 @@
     <string name="selected">Выбрано: %d</string>
     <string name="add_item_title">Добавление элемента</string>
     <string name="income">income</string>
+    <string name="expense">expense</string>
+    <string name="balance">Баланс</string>
 </resources>
