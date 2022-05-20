@@ -5,6 +5,15 @@ plugins {
 android {
     compileSdk 31
 
+    signingConfigs {
+        release {
+            storeFile file('D:\\Program Files\\Android\\Android Studio\\jre\\bin\\loftschool_hw.jks')
+            storePassword 'password1'
+            keyAlias 'loftschool_hw_key'
+            keyPassword 'password1'
+        }
+    }
+
     defaultConfig {
         applicationId "com.loftschool.helloworld"
         minSdk 21
@@ -16,11 +25,41 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
+            resValue("string", "app_name", "LoftMoney-Debug")
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue("string", "app_name", "LoftMoney")
         }
     }
+
+    flavorDimensions 'color'
+    productFlavors {
+        primary {
+            dimension 'color'
+            applicationIdSuffix ".primary"
+            manifestPlaceholders = [appTheme: "@style/Theme.primary"]
+        }
+
+        secondary {
+            dimension 'color'
+            applicationIdSuffix ".secondary"
+            manifestPlaceholders = [appTheme: "@style/Theme.secondary"]
+        }
+
+        accent {
+            dimension 'color'
+            applicationIdSuffix ".accent"
+            manifestPlaceholders = [appTheme: "@style/Theme.accent"]
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
